@@ -1,0 +1,273 @@
+@use 'use';
+
+/*-----------------search-----------------*/
+
+.search {
+
+    @include use.mq(){
+        display: block;
+        width: 100%;
+    }
+}
+.search-tabs{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 30px;
+    li {
+        padding: 10px 40px;
+        border: 3px solid use.$hov-c;
+        border-radius: 6px 6px 0 0;
+        cursor: pointer;
+        font-weight: 700;
+        &:not(:last-child){
+            margin-right: 8px;
+        }
+
+        &.is-active {
+            padding: 12px 40px;
+            border: 3px solid transparent;
+            background: use.$hov-c;
+            color: #fff;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            font-weight: 700;
+        }
+    }
+}
+
+.tab-border {
+    width: 100%;
+    height: 3px;
+    background: use.$hov-c;
+    margin-bottom: 50px;
+
+}
+
+
+.panel{
+    margin-left: 100px;
+    margin-right: 100px;
+    visibility: hidden;
+    transition: visibility 0.5s ease 0s;
+
+    &.is-active{
+        visibility: visible;
+    }
+
+    @include use.mq(){
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    dl{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.s-form-row {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px;
+
+    @include use.mq(){
+        line-height: 1;
+        flex-wrap: wrap;
+        padding-bottom: 32.5px;
+    }
+
+    @include use.mq(tab){
+        line-height: 1;
+        flex-wrap: wrap;
+        padding-bottom: 32.5px;
+    }
+
+}
+
+$form-item-width:188px;
+
+.s-form-item {
+    width: $form-item-width;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 0;
+
+    @include use.mq(){
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 15px;
+
+    }
+    @include use.mq(tab){
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 15px;
+
+    }
+
+    label {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+
+        @include use.mq(){
+            line-height: 20px;
+        }
+        @include use.mq(tab){
+            line-height: 20px;
+        }
+    }
+    span{
+        margin-left: 10px;
+        box-sizing: border-box;
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 12px;
+        line-height: 14px;
+        padding: 3px 9px;
+        border: 3px solid use.$hov-c;
+        font-weight: 700;
+        color: use.$hov-c;
+        transform: translateY(-2px);
+    }
+}
+
+.s-form-explain {
+    width: calc(100% - $form-item-width);
+    padding: 0;
+    margin: 0;
+
+    @include use.mq(){
+        width: 100%;
+    }
+    @include use.mq(tab){
+        width: 100%;
+    }
+
+    .select-wrapper{
+        position: relative;
+        width: 100%;
+        &::after{
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            border-top: 3px solid use.$hov-c;
+            border-left: 3px solid use.$hov-c;
+            width: 7px;
+            height: 7px;
+            pointer-events: none;
+            transform: translateY(-50%) rotate(-135deg);
+        }
+    }
+    select {
+        appearance: none;
+        cursor: pointer;
+        border: 1px solid use.$hov-c;
+        height: 36px;
+        padding: 8px 20px;
+        font-size: 14px;
+        line-height: 18px;
+        width: 100%;
+
+        option{
+            &:hover{
+                background: use.$hov-c;
+            }
+        }
+
+    }
+
+    .range{
+        display: grid;
+        grid-template-columns: calc((100% - 5%) / 2) 5% calc((100% - 5%) / 2);
+
+        span{
+            text-align: center;
+            align-items: stretch;
+        }
+    }
+
+    input[type="text"] {
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid use.$hov-c;
+        background:#fff;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 12px;
+        appearance: none;
+        border-radius: 0;
+        color: inherit;
+        font-family: inherit;
+        font-size: 16px;
+        display: block;
+        height: 36px;
+        cursor: pointer;
+
+        @include use.mq(){
+            font-size: 12px;
+            padding-left: 12px;
+            padding-top: 0px;
+            padding-bottom: 5px;
+        }
+
+        @include use.mq('tab'){
+            font-size: 12px;
+            padding-left: 12px;
+            padding-top: 0px;
+            padding-bottom: 5px;
+        }
+
+        &::placeholder {
+            color: #CCCCCC;
+        }
+        &:hover {
+            box-shadow: 0 5px 5px -5px use.$hov-c;
+            border-bottom: 1px solid use.$hov-c;
+        }
+        &:focus {
+            border: transparent transparent 1px transparent solid use.$hov-c;
+            box-shadow: 0 5px 5px -5px use.$hov-c;
+            outline: use.$hov-c
+        }
+    }
+}
+
+.submit-btn-space {
+    margin-top: 50px;
+    height: 50px;
+    width: auto;
+    display: block;
+    text-align: center;
+}
+
+.submit-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    background: use.$hov-c;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px 50px;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: .45px;
+    white-space: nowrap;
+    font-family: use.$bs-ff;
+    border: transparent;
+    transition: all 0.3s ease 0s;
+
+    @include use.mq('tab'){
+        font-size: 16px;
+        padding: 16px 32px;
+
+    }
+
+    &:hover{
+        opacity: 0.7;
+    }
+}

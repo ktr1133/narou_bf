@@ -1,0 +1,46 @@
+@use 'use';
+/*-----------------about-----------------*/
+.about {
+    width: 100%;
+
+    .about-img {
+        float: left;
+        padding: 0 40px 40px 0;
+        width: 45%;
+
+        @include use.mq(){
+            display: none;
+        }
+
+        @include use.mq('tab'){
+            padding: 0px 40px 40px 0px;
+        }
+    }
+}
+
+.describe {
+    font-family: use.$bs-ff;
+    font-size: use.$bs-fs;
+
+    @include use.mq(){
+        position: static;
+        transform: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.notes{
+    font-size: use.$bs-fs;
+    font-weight: 700;
+    color: use.$hov_c;
+    margin-left: 20px;
+    position: relative;
+    &::before{
+        content: '※';
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        transform: translateY(-50%);
+    }
+}

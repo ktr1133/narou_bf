@@ -1,0 +1,258 @@
+@use 'use';
+
+/*----- detail_w chart以外------*/
+.titles-content{
+    table{
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+        height: 100%;
+        font-size: use.$bs-fs;
+        background-color: #fff;
+        margin-bottom: 30px;
+
+        @include use.mq(){
+            height: 250px;
+        }
+
+    }
+
+    th, td{
+        box-sizing: border-box;
+        height: 50px;
+        padding: 15px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    th{
+        font-weight: 700;
+    }
+    th:first-child{
+        width: 80px;
+    }
+    td{
+        text-align: left;
+        line-height: 20px;
+    }
+    .dw-title{
+        font-weight: 700;
+    }
+    .dw-gan{
+        font-weight: 700;
+        color: use.$sub-fc;
+    }
+    .dw-lastupdate{
+        font-weight: 700;
+        color: use.$sub-fc;
+    }
+    .dw-ncode{
+        font-weight: 700;
+        color: use.$hov-c;
+    }
+}
+
+.to-detail-dw{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 20%;
+    padding: 20px;
+    background: rgba(#fff, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0 use.$bs-fc ;
+
+    @include use.mq(){
+        width: 160px;
+    }
+}
+
+.to-detail-title-dw{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+
+    @include use.mq(){
+        font-size: 16px;
+    }
+}
+
+.to-detail-form-dw{
+    margin-top: 10px;
+}
+
+.to-detail-input-wrapper-dw{
+    display: inline-block;
+    width: 100%;
+
+    input[type="text"] {
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid use.$hov-c;
+        background:#fff;
+        padding-top: 8px;
+        padding-bottom: 3px;
+        padding-left: 12px;
+        appearance: none;
+        border-radius: 0;
+        color: inherit;
+        font-family: inherit;
+        font-size: 16px;
+        display: block;
+        height: 36px;
+        cursor: pointer;
+
+        @include use.mq(){
+            font-size: 12px;
+            padding-left: 12px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        @include use.mq('tab'){
+            font-size: 12px;
+            padding-left: 12px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        &::placeholder {
+            color: #CCCCCC;
+            font-size: 16px;
+        }
+        &:hover {
+            box-shadow: 0 5px 5px -5px use.$hov-c;
+            border-bottom: 1px solid use.$hov-c;
+        }
+        &:focus {
+            border: transparent transparent 1px transparent solid use.$hov-c;
+            box-shadow: 0 5px 5px -5px use.$hov-c;
+            outline: use.$hov-c
+        }
+    }
+}
+.to-detail-btn-mini-space{
+    display: block;
+    text-align: center;
+}
+
+.s-submit-btn-mini {
+    cursor: pointer;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background: use.$hov-c;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: .45px;
+    white-space: nowrap;
+    font-family: use.$bs-ff;
+    border: transparent;
+    transition: all 0.3s ease 0s;
+
+    @include use.mq('tab'){
+        font-size: 14px;
+        padding: 3px 5px;
+        width: 80px;
+    }
+
+    @include use.mq(){
+        font-size: 12px;
+        padding: 3px 5px;
+        width: 80px;
+    }
+
+    &:hover{
+        opacity: 0.7;
+    }
+}
+
+/*-----dw-chart部分-----*/
+
+.dw-chart-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    gap: 2%;
+
+    @include use.mq(){
+        display: flex;
+        flex-direction: row;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        gap: 2%;
+    
+    }
+}
+
+.dw-c-card{
+    display: flex;
+    flex-direction: column;
+    &:not(:last-child){
+        margin-bottom: 20px;
+    }
+    &.sca{
+        width: 100%;
+    }
+    &.po{
+        width: 49%;
+        @include use.mq(){
+            width: 100%;
+        }
+        @include use.mq('tab'){
+            width: 100%;
+        }
+    }
+    &.un{
+        width: 49%;
+        @include use.mq(){
+            width: 100%;
+        }
+        @include use.mq('tab'){
+            width: 100%;
+        }
+    }
+    &.mk{
+        width: 49%;
+        @include use.mq(){
+            width: 100%;
+        }
+        @include use.mq('tab'){
+            width: 100%;
+        }
+    }
+    &.ca{
+        width: 49%;
+        @include use.mq(){
+            width: 100%;
+        }
+        @include use.mq('tab'){
+            width: 100%;
+        }
+    }
+}
+
+.dw-c-card-title{
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.dw-c-card-subtitle{
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.flexible{
+    flex-grow: 1;
+}

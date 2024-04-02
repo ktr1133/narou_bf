@@ -1,0 +1,42 @@
+@use 'use';
+
+/*-----------------section-----------------*/
+
+.section-title {
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include use.mq(){
+        font-size: 25px;
+    }
+    @include use.mq('tab'){
+        font-size: 35px;
+    }
+}
+
+.section-subtitle {
+    font-size: 35px;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include use.mq(){
+        font-size: 25px;
+    }
+
+}
+
+section {
+    padding-bottom: 80px;
+
+    @include use.mq(){
+        padding-bottom: 30px;
+    }
+    @include use.mq('tab'){
+        padding-bottom: 45px;
+    }
+}

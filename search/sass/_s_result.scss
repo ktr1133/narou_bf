@@ -1,0 +1,221 @@
+@use 's_use';
+
+/*-----list-----*/
+.result-wrapper{
+    border-radius: 5px;
+    box-shadow:  0 3px 6px 0 s_use.$bs-fc;
+    position: relative;
+    padding: 30px 50px 30px 50px;
+
+    @include s_use.mq(){
+        padding: 15px;
+    }
+    @include s_use.mq('tab'){
+        padding: 20px;
+    }
+}
+
+.result-tag{
+    display: inline-block;
+    background: s_use.$hov-c;
+    border-radius: 5px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.result-item{
+    &:not(:last-child){
+        margin-bottom: 15px;
+    }
+}
+
+.item-link{
+    text-decoration: none;
+    &:hover{
+        color: s_use.$hov-c;
+    }
+}
+
+table{
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    font-size: s_use.$bs-fs;
+    background-color: #fff;
+
+    @include s_use.mq(){
+        height: 250px;
+    }
+
+}
+
+th, td{
+    box-sizing: border-box;
+    height: 50px;
+    padding: 15px;
+    vertical-align: middle;
+    text-align: center;
+}
+th{
+    font-weight: 700;
+}
+th:first-child{
+    width: 80px;
+}
+td{
+    text-align: left;
+    line-height: 20px;
+}
+.r-rank{
+    font-size: 28px;
+    color: s_use.$bs-fc-sub;
+}
+.r-title{
+    font-weight: 700;
+}
+.w-r-title{
+    font-weight: 700;
+    color: s_use.$sub-fc;
+}
+.r-writer{
+    font-weight: 700;
+    color: s_use.$sub-fc;
+}
+.w-r-writer{
+    font-weight: 700;
+}
+.r-ncode{
+    font-weight: 700;
+    color: s_use.$hov-c;
+}
+.w-r-ncode{
+    font-weight: 700;
+    color: s_use.$hov-c;
+}
+
+.to-detail{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 20%;
+    padding: 20px;
+    background: rgba(#fff, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 3px 6px 0 use.$bs-fc ;
+
+    @include s_use.mq(){
+        width: 160px;
+    }
+}
+.to-detail-title{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+
+    @include s_use.mq(){
+        font-size: 16px;
+    }
+}
+
+.to-detail-form{
+    margin-top: 10px;
+}
+
+.to-detail-input-wrapper{
+    display: inline-block;
+    width: 100%;
+
+    input[type="text"] {
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid s_use.$hov-c;
+        background:#fff;
+        padding-top: 8px;
+        padding-bottom: 3px;
+        padding-left: 12px;
+        appearance: none;
+        border-radius: 0;
+        color: inherit;
+        font-family: inherit;
+        font-size: 16px;
+        display: block;
+        height: 36px;
+        cursor: pointer;
+
+        @include s_use.mq(){
+            font-size: 12px;
+            padding-left: 12px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        @include s_use.mq('tab'){
+            font-size: 12px;
+            padding-left: 12px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        &::placeholder {
+            color: #CCCCCC;
+            font-size: 16px;
+        }
+        &:hover {
+            box-shadow: 0 5px 5px -5px s_use.$hov-c;
+            border-bottom: 1px solid s_use.$hov-c;
+        }
+        &:focus {
+            border: transparent transparent 1px transparent solid s_use.$hov-c;
+            box-shadow: 0 5px 5px -5px s_use.$hov-c;
+            outline: s_use.$hov-c
+        }
+    }
+}
+.to-detail-btn-space{
+    display: block;
+    text-align: center;
+}
+
+.s-submit-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background: s_use.$hov-c;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: .45px;
+    white-space: nowrap;
+    font-family: s_use.$bs-ff;
+    border: transparent;
+    transition: all 0.3s ease 0s;
+
+    @include s_use.mq('tab'){
+        font-size: 14px;
+        padding: 3px 5px;
+        width: 80px;
+    }
+
+    @include s_use.mq(){
+        font-size: 12px;
+        padding: 3px 5px;
+        width: 80px;
+    }
+
+    &:hover{
+        opacity: 0.7;
+    }
+}

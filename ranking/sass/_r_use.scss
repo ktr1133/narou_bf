@@ -1,0 +1,85 @@
+/*-----------------common(use)-----------------*/
+
+$bs-fc:#082B48;
+$nav-c:#f9f9f9;
+$bs-bg-c:#e3fcf4;
+$bs-ff:'Dela Gothic One', 'Roboto Condensed',Verdana, Geneva, Tahoma, sans-serif;
+$bs-fs:16px;
+$hov-c:#5eccb0ff;
+
+$layout-width-inner:1200px;
+
+$breakpoints: (
+    'sp': "(max-width: 850px)",
+    'tab': "(min-width: 768px) and (max-width: #{$layout-width-inner - 1px})",
+    'pc': "(min-width: #{$layout-width-inner})"
+) !default;
+
+@mixin mq($breakpoint: sp) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+body {
+    color: $bs-fc;
+    font-family: $bs-ff;
+    line-height: 1.5;
+    font-size: $bs-fs;
+}
+
+.container {
+    width: $layout-width-inner;
+    max-width: 100%;
+    margin:0 auto;
+
+    @include mq($breakpoint: tab) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @include mq() {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+.clear::after {
+    content:'';
+    clear:both;
+    display: block;
+}
+
+.pagetop {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: transparent;
+    border: solid 2px #082B48;
+    border-radius: 50%;
+    display: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.pagetop__arrow {
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-top: 3px solid #082B48;
+    border-right: 3px solid #082B48;
+    -webkit-transform: translateY(20%) rotate(-45deg);
+            transform: translateY(20%) rotate(-45deg);
+}
+
+a:hover {
+    color: $hov-c;
+}

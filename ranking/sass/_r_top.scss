@@ -1,0 +1,31 @@
+@use 'r_use';
+
+/*-----------------top-----------------*/
+
+.top {
+    top: 120px;
+    background: transparent url(../img/top_visual.jpg) center / cover;
+    .top-wrap {
+        .top-title {
+            text-align: center;
+            width: 100%;
+            font-weight: 700;
+            font-size: calc(1.625rem + 4.5vw);
+            padding-top: 200px;
+            padding-bottom: 70px;
+        }
+
+        .top-subtitle {
+            text-align: center;
+            width: 100%;
+            font-weight: 700;
+            font-size: calc(1rem + 2vw);
+            padding-bottom: 70px;
+        }
+    }
+
+    @include r_use.mq(){
+        width: 100%;
+        display: block;
+    }
+}

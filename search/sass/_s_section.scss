@@ -1,0 +1,23 @@
+@use 's_use';
+
+/*-----------------section-----------------*/
+
+.section-title {
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 80px;
+}
+
+section {
+    padding-bottom: 80px;
+}

@@ -1,0 +1,159 @@
+@use 'use';
+
+/*----- archive -----*/
+
+.a-text{
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.archive-content-wrapper{
+    padding: 60px 120px 62px 120px;
+    @include use.mq('tab'){
+        padding: 60px 60px 62px 60px;
+    
+    }
+    @include use.mq('sp'){
+        padding: 20px 20px 20px 20px;
+    
+    }
+}
+
+.archive-content{
+    width: 100%;
+    
+    background: #FFFFFF;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 3px 6px 0 use.$bs-fc ;
+
+    dl{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.a-form-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-bottom: 30px;
+
+    &.pot{
+        padding-bottom: 60px;
+    }
+
+    @include use.mq(){
+        flex-direction: column;
+    }
+}
+
+
+$a-form-item-width:40px;
+$a-button-width:150px;
+
+.a-form-item {
+    width: $a-form-item-width;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-right: 10px;
+    text-align: left;
+
+
+    label {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: normal;
+
+        @include use.mq(){
+            line-height: 20px;
+
+        }
+        @include use.mq(tab){
+            line-height: 20px;
+        }
+    }
+}
+
+.a-form-explain {
+    width: calc(100% - $a-form-item-width);
+    padding: 0;
+    margin: 0;
+    margin-right: 20px;
+
+    @include use.mq(){
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .a-select-wrapper{
+        position: relative;
+        width: 100%;
+        &::after{
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            border-top: 3px solid use.$hov-c;
+            border-left: 3px solid use.$hov-c;
+            width: 7px;
+            height: 7px;
+            pointer-events: none;
+            transform: translateY(-50%) rotate(-135deg);
+        }
+    }
+    select {
+        appearance: none;
+        cursor: pointer;
+        border: 1px solid use.$hov-c;
+        height: 36px;
+        padding: 8px 20px;
+        font-size: 14px;
+        line-height: 18px;
+        width: 100%;
+
+        option{
+            &:hover{
+                background: use.$hov-c;
+            }
+        }
+    }
+}
+
+.a-btn-space{
+    display: block;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.a-form-submit {
+    cursor: pointer;
+    display: inline-block;
+    width: 173px;
+    height: 50px;
+    background: use.$hov-c;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px 50px;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: .45px;
+    white-space: nowrap;
+    font-family: use.$bs-ff;
+    border: transparent;
+    transition: all 0.3s ease 0s;
+
+    @include use.mq('tab'){
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+
+    &:hover{
+        opacity: 0.7;
+    }
+}
+
+
+

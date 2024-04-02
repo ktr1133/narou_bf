@@ -1,0 +1,30 @@
+@use 'r_use';
+
+/*-------load画面-------*/
+#loading {
+    background-color: r_use.$nav-c;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    color: r_use.$hov-c;
+}
+
+.progress-bar {
+    border-top: 1px solid r_use.$hov-c;
+    position: absolute;
+    top: 50%;
+    width: 0%;
+}
+
+.progress-text {
+    font-size: 13px;
+    margin-top: 10px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+.progress-complete {
+    border-top-color: r_use.$hov-c;
+}

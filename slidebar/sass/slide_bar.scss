@@ -1,0 +1,276 @@
+@use 'use';
+
+/*----- slide bar -----*/
+.point-of-time{
+    width: 80px;
+
+    &.month{
+        display: none;
+    
+        &.is-active{
+            display: block;
+        }
+    }
+    &.day{
+        display: none;
+    
+        &.is-active{
+            display: block;
+        }
+    }
+}
+
+.noUi-target,.noUi-target *{
+    -webkit-touch-callout:none;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-user-select:none;
+    -ms-touch-action:none;
+    touch-action:none;
+    user-select:none;
+    box-sizing:border-box
+}
+.noUi-target{
+    position:relative
+}
+.noUi-base,
+.noUi-connects{
+    width:100%;
+    height:100%;
+    position:relative;
+    z-index:1
+}
+.noUi-connects{
+    overflow:hidden;
+    z-index:0
+}
+.noUi-connect,
+.noUi-origin{
+    will-change:transform;
+    position:absolute;
+    z-index:1;
+    top:0;
+    right:0;
+    height:100%;
+    width:100%;
+    transform-origin:0 0;
+    transform-style:flat
+}
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-origin{
+    left:0;
+    right:auto
+}
+.noUi-vertical .noUi-origin{
+    top:-100%;
+    width:0
+}
+.noUi-horizontal .noUi-origin{
+    height:0
+}
+.noUi-handle{
+    backface-visibility:hidden;
+    position:absolute
+}
+.noUi-touch-area{
+    height:100%;
+    width:100%
+}
+.noUi-state-tap .noUi-connect,.noUi-state-tap .noUi-origin{
+    transition:transform .3s
+}
+.noUi-state-drag *{
+    cursor:inherit!important
+}
+.noUi-horizontal{
+    height:18px
+}
+.noUi-horizontal .noUi-handle{
+    width:32px;
+    height:32px;
+    right:-16px;
+    top:-8px;
+    border-radius: 50%;
+    
+}
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-handle{
+    left:-17px;
+    right:auto
+}
+.noUi-target{
+    background:#FAFAFA;
+    border-radius:0px;
+    border:1px solid use.$hov-c;
+}
+.noUi-connects{
+    border-radius:3px
+}
+.noUi-connect{
+    background:use.$slide-c
+}
+.noUi-draggable{
+    cursor:ew-resize
+}
+.noUi-vertical .noUi-draggable{
+    cursor:ns-resize
+}
+.noUi-handle{
+    border:1px solid use.$hov-c;
+    border-radius:3px;
+    background:#FFF;
+    cursor:default;
+
+    &::after
+    {
+        content:"";
+        display:block;
+        position:absolute;
+        height:14px;
+        width:1px;
+        background:use.$hov-c;
+        left:17px;
+        top:8px
+    }
+    &::before{
+        content:"";
+        display:block;
+        position:absolute;
+        height:14px;
+        width:1px;
+        background:use.$hov-c;
+        left:12px;
+        top:8px
+    }
+}
+[disabled] .noUi-connect{
+    background:#fff
+}
+[disabled] .noUi-handle,[disabled].noUi-handle,[disabled].noUi-target{
+    cursor:not-allowed
+}
+.noUi-pips,.noUi-pips *{
+    box-sizing:border-box
+}
+.noUi-pips{
+    position:absolute;
+    color:#999
+}
+.noUi-value{
+    position:absolute;
+    white-space:nowrap;
+    text-align:center
+}
+.noUi-value-sub{
+    color:#ccc;
+    font-size:10px
+}
+.noUi-marker{
+    position:absolute;
+    background:#CCC
+}
+.noUi-marker-sub{
+    background:#AAA
+}
+.noUi-marker-large{
+    background:#AAA
+}
+.noUi-pips-horizontal{
+    padding:10px 0;
+    height:80px;
+    top:100%;
+    left:0;
+    width:100%
+}
+.noUi-value-horizontal{
+    transform:translate(-50%,50%)
+}
+.noUi-rtl .noUi-value-horizontal{
+    transform:translate(50%,50%)
+}
+.noUi-marker-horizontal.noUi-marker{
+    margin-left:-1px;
+    width:2px;
+    height:5px
+}
+.noUi-marker-horizontal.noUi-marker-sub{
+    height:10px
+}
+.noUi-marker-horizontal.noUi-marker-large{
+    height:15px
+}
+.noUi-pips-vertical{
+    padding:0 10px;
+    height:100%;
+    top:0;
+    left:100%
+}
+.noUi-value-vertical{
+    transform:translate(0,-50%);
+    padding-left:25px
+}
+.noUi-rtl .noUi-value-vertical{
+    transform:translate(0,50%)
+}
+.noUi-marker-vertical.noUi-marker{
+    width:5px;
+    height:2px;
+    margin-top:-1px
+}
+.noUi-marker-vertical.noUi-marker-sub{
+    width:10px
+}
+.noUi-marker-vertical.noUi-marker-large{
+    width:15px
+}
+.noUi-tooltip{
+    display:block;
+    position:absolute;
+    border:1px solid transparent;
+    border-radius:3px;
+    background:#fff;
+    color:use.$bs-fc;
+    font-size: 12px;
+    line-height: 12px;
+    height: 22px;
+    padding:4px 8px;
+    text-align:center;
+    white-space:nowrap
+}
+.noUi-horizontal .noUi-tooltip{
+    transform:translate(-50%,0);
+    left:50%;
+    bottom:120%
+}
+.noUi-vertical .noUi-tooltip{
+    transform:translate(0,-50%);
+    top:50%;
+    right:120%
+}
+.noUi-horizontal .noUi-origin>.noUi-tooltip{
+    transform:translate(50%,0);
+    left:auto;bottom:10px
+}
+.noUi-vertical .noUi-origin>.noUi-tooltip{
+    transform:translate(0,-18px);
+    top:auto;
+    right:28px
+}
+
+#slider{
+    margin: 30px 30px 15px 30px;
+}
+
+.slider-span{
+    position: relative;
+    #range_s{
+        position: absolute;
+        left: 20%;
+    }
+    #range_to{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #range_e{
+        position: absolute;
+        right: 20%;
+    }
+}
